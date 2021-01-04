@@ -38,13 +38,13 @@
 <script>
 export default {
   name: 'SideMenu',
-  data () {
+  data() {
     return {
       cid: ''
     }
   },
   methods: {
-    handleSelect (key, keyPath) {
+    handleSelect(key, keyPath) {
       this.cid = key
       this.$emit('indexSelect')
     }
@@ -53,11 +53,11 @@ export default {
 </script>
 
 <style scoped>
-  .categories {
-    position: fixed;
-    margin-left: 50%;
-    left: -600px;
-    top: 100px;
-    width: 150px;
-  }
+.categories {
+  position: fixed;
+  margin-left: 50%;
+  left: -600px;
+  top: 100px;
+  width: 150px;
+}
 </style>

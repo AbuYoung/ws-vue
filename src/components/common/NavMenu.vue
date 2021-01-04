@@ -34,11 +34,11 @@ export default {
 </script>
 
 <style scoped>
-  a{
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  span {
-    pointer-events: none;
-  }
+span {
+  pointer-events: none;
+}
 </style>

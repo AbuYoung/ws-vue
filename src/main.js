@@ -6,7 +6,7 @@ import store from './store'
 import 'element-ui/lib/theme-chalk/index.css'
 
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api
-var axios = require('axios')
+let axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8443/api'
 // axios.defaults.baseURL = 'http://47.92.251.172:8443/api'
 
@@ -30,14 +30,13 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-}
-)
+})
 
 new Vue({
   el: '#app',
   render: h => h(App),
   router,
   store,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

@@ -18,7 +18,7 @@ export default {
   name: 'AppLibrary',
   components: {Books, SideMenu},
   methods: {
-    listByCategory () {
+    listByCategory() {
       var _this = this
       var cid = this.$refs.sideMenu.cid
       var url = 'categories/' + cid + '/books'
@@ -33,9 +33,9 @@ export default {
 </script>
 
 <style scoped>
-  .books-area {
-    width: 990px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.books-area {
+  width: 990px;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
