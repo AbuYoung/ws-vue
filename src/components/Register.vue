@@ -1,19 +1,31 @@
 <template>
   <div id="paper">
-    <el-form class="login-container" label-position="left"
-             label-width="0px" v-loading="loading">
+    <el-form
+      v-loading="loading"
+      class="login-container"
+      label-position="left"
+      label-width="0px">
       <h3 class="login_title">用户注册</h3>
       <el-form-item>
-        <el-input type="text" v-model="loginForm.username"
-                  auto-complete="off" placeholder="账号"></el-input>
+        <el-input
+          v-model="loginForm.username"
+          type="text"
+          auto-complete="off"
+          placeholder="账号"/>
       </el-form-item>
       <el-form-item>
-        <el-input type="password" v-model="loginForm.password"
-                  auto-complete="off" placeholder="密码"></el-input>
+        <el-input
+          v-model="loginForm.password"
+          type="password"
+          auto-complete="off"
+          placeholder="密码"/>
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 40%;background: #505458;
-      border: none" v-on:click="register">注册
+        <el-button
+          type="primary"
+          style="width: 40%;background: #505458;
+      border: none"
+          @click="register">注册
         </el-button>
       </el-form-item>
     </el-form>
@@ -22,7 +34,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       checked: true,
       loginForm: {
@@ -33,8 +45,8 @@ export default {
     }
   },
   methods: {
-    register () {
-      let _this = this
+    register() {
+      const _this = this
       this.$axios.post('/register', {
         username: this.loginForm.username,
         password: this.loginForm.password
@@ -49,6 +61,7 @@ export default {
             confirmButtonText: '确定'
           })
         }
+        // eslint-disable-next-line no-unused-vars
       }).catch(failResponse => {
       })
     }

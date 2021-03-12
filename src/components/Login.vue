@@ -1,21 +1,34 @@
 <template>
   <div id="poster">
-    <el-form class="login-container" label-position="left"
-             label-width="0px">
+    <el-form
+      class="login-container"
+      label-position="left"
+      label-width="0px">
       <h3 class="login_title">系统登陆</h3>
       <el-form-item>
-        <el-input type="text" v-model="loginForm.username"
-                  auto-complete="on" placeholder="账号"></el-input>
+        <el-input
+          v-model="loginForm.username"
+          type="text"
+          auto-complete="on"
+          placeholder="账号"/>
       </el-form-item>
       <el-form-item>
-        <el-input type="password" v-model="loginForm.password"
-                  auto-complete="on" placeholder="密码"></el-input>
+        <el-input
+          v-model="loginForm.password"
+          type="password"
+          auto-complete="on"
+          placeholder="密码"/>
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 40%; background: #505458; border: none" v-on:click="login">登录
+        <el-button
+          type="primary"
+          style="width: 40%; background: #505458; border: none"
+          @click="login">登录
         </el-button>
         <router-link to="register">
-          <el-button type="primary" style="width: 40%;background: #505458;border: none">注册</el-button>
+          <el-button
+            type="primary"
+            style="width: 40%;background: #505458;border: none">注册</el-button>
         </router-link>
       </el-form-item>
     </el-form>
@@ -23,6 +36,8 @@
 </template>
 
 <script>
+
+import { loginApply } from '../api/login'
 
 export default {
   name: 'Login',
@@ -37,20 +52,13 @@ export default {
   },
   methods: {
     login() {
-      let _this = this
-      console.log(this.$store.state)
-      this.$axios
-        .post('/login', {
-          username: this.loginForm.username,
-          password: this.loginForm.password
-        }).then(successResponse => {
-        if (successResponse.data.code === 200) {
-          // var data = this.loginForm
+      const _this = this
+      loginApply(this.loginForm.username, this.loginForm.password).then(res => {
+        if (res.data.code === 200) {
           _this.$store.commit('login', _this.loginForm)
-          let path = this.$route.query.redirect
-          this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
+          const path = this.$route.query.redirect
+          this.$router.replace({ path: path === '/' || path === undefined ? '/index' : path })
         }
-      }).catch(failResponse => {
       })
     }
   }
