@@ -27,13 +27,13 @@
 <script>
 export default {
   name: 'NavMenu',
-  data () {
+  data() {
     return {
       navList: [
-        {name: '/index', navItem: '首页'},
-        {name: '/jotter', navItem: '笔记本'},
-        {name: '/Library', navItem: '图书馆'},
-        {name: '/admin', navItem: '个人中心'}
+        { name: '/index', navItem: '首页' },
+        { name: '/jotter', navItem: '笔记本' },
+        { name: '/Library', navItem: '图书馆' },
+        { name: '/admin', navItem: '个人中心' }
       ]
     }
   }
